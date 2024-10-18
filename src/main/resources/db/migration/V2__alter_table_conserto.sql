@@ -1,0 +1,1 @@
+ALTER TABLE conserto ADD cor_veiculo VARCHAR(30)
