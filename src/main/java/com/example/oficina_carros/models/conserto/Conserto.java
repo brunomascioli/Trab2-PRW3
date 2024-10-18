@@ -1,11 +1,12 @@
-package com.example.oficina_carros.models;
+package com.example.oficina_carros.models.conserto;
 
-import com.example.oficina_carros.DTOs.ConsertoDTO;
+import com.example.oficina_carros.models.mecanico.Mecanico;
+import com.example.oficina_carros.models.veiculo.Veiculo;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name = "conserto")
-@Entity(name = "Concerto")
+@Entity(name = "Conserto")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,7 +29,7 @@ public class Conserto {
     public Conserto(ConsertoDTO consertoDTO) {
         this.data_entrada = consertoDTO.data_entrada();
         this.data_saida = consertoDTO.data_saida();
-        this.mecanico = consertoDTO.mecanico();
-        this.veiculo = consertoDTO.veiculo();
+        this.mecanico = new Mecanico(consertoDTO.mecanico());
+        this.veiculo = new Veiculo(consertoDTO.veiculo());
     }
 }
